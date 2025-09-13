@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "B612", sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 60px;
+  font-size: 18px;
+
+  color: #222;
+}
+
+h1 {
+  margin-bottom: 48px;
+}
+
+header {
+  margin-bottom: 48px;
+
+  display: flex;
+
+  gap: 12px;
+  align-items: center;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 8px 12px;
+
+  font-family: "B612", sans-serif;
+  font-size: 1rem;
+
+  background: rgb(42, 120, 245);
+  color: white;
+
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.ts-wrapper {
+  width: 300px;
+}
