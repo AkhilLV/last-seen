@@ -16,15 +16,27 @@
   <body>
     <h1>last-seen</h1>
 
-    <header>
+    <form class="input-form">
       <select
         id="select"
         placeholder="Select or add a person..."
         autocomplete="off"
       ></select>
 
-      <button id="btn">Log</button>
-    </header>
+      <button id="btn" type="submit">Log</button>
+    </form>
+
+    <form id="sort-form">
+      <div>
+        <input type="radio" id="latest" name="sort" value="latest" checked />
+        <label for="latest">Order by latest first</label>
+      </div>
+
+      <div>
+        <input type="radio" id="oldest" name="sort" value="oldest" />
+        <label for="oldest">Order by oldest first</label>
+      </div>
+    </form>
 
     <div id="list"></div>
   </body>

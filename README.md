@@ -1,0 +1,3 @@
+- [x] Clear select on log
+- [x] Submit form on pressing enter
+- [x] sort options: newest calls first, oldest first

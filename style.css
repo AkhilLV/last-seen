@@ -19,7 +19,7 @@ h1 {
   margin-bottom: 48px;
 }
 
-header {
+.input-form {
   margin-bottom: 48px;
 
   display: flex;
@@ -49,4 +49,10 @@ button {
 
 .ts-wrapper {
   width: 300px;
+}
+
+#sort-form {
+  margin-bottom: 48px;
+  display: flex;
+  gap: 24px;
 }

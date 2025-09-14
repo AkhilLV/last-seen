@@ -1,5 +1,7 @@
 const logListDiv = document.getElementById("list");
-const btn = document.getElementById("btn");
+const form = document.querySelector("form");
+
+const sortForm = document.querySelector("#sort-form");
 
 const friendsList = JSON.parse(localStorage.getItem("friends")) || [];
 const tomSelectOptions = friendsList.map((friend) => {
@@ -9,7 +11,7 @@ const tomSelectOptions = friendsList.map((friend) => {
   };
 });
 
-new TomSelect("#select", {
+const control = new TomSelect("#select", {
   create: true,
   sortField: {
     field: "text",
@@ -23,7 +25,8 @@ new TomSelect("#select", {
   options: tomSelectOptions,
 });
 
-btn.addEventListener("click", () => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   const selectedFriendName = document.getElementById("select").value;
 
   if (!selectedFriendName) {
@@ -45,6 +48,7 @@ btn.addEventListener("click", () => {
   localStorage.setItem("friends", JSON.stringify(friendsList));
 
   renderList();
+  control.clear();
 });
 
 const prettyPrintDate = (date) => {
@@ -74,6 +78,9 @@ const prettyPrintDate = (date) => {
 };
 
 const renderList = () => {
+  const formData = new FormData(sortForm);
+  const sortBy = formData.get("sort"); // latest | oldest
+
   const friendsList = JSON.parse(localStorage.getItem("friends")) || [];
 
   if (friendsList.length === 0) {
@@ -82,6 +89,10 @@ const renderList = () => {
   }
 
   logListDiv.innerHTML = "";
+
+  if (sortBy === "latest") friendsList.sort((a, b) => a.lastSeen < b.lastSeen);
+  if (sortBy === "oldest") friendsList.sort((a, b) => a.lastSeen > b.lastSeen);
+
   friendsList.forEach((friend) => {
     logListDiv.insertAdjacentHTML(
       "beforeend",
@@ -89,5 +100,7 @@ const renderList = () => {
     );
   });
 };
+
+sortForm.addEventListener("input", renderList);
 
 renderList();
