@@ -96,7 +96,9 @@ const renderList = () => {
   friendsList.forEach((friend) => {
     logListDiv.insertAdjacentHTML(
       "beforeend",
-      `<p>${friend.name} ... ${prettyPrintDate(new Date(friend.lastSeen))}</p>`
+      `<li>${friend.name} ... ${prettyPrintDate(
+        new Date(friend.lastSeen)
+      )}</li>`
     );
   });
 };

@@ -28,8 +28,9 @@ h1 {
   align-items: center;
 }
 
-p {
+li {
   margin-bottom: 12px;
+  list-style: none;
 }
 
 button {
@@ -55,4 +56,8 @@ button {
   margin-bottom: 48px;
   display: flex;
   gap: 24px;
+}
+
+#list li:nth-child(1) {
+  color: rgb(194, 14, 14);
 }
